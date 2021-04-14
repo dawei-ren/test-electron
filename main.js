@@ -1,19 +1,30 @@
-var electron = require('electron')
+const { app, BrowserWindow } = require('electron')
+const path = require('path')
 
-var app = electron.app  // 引用app
-var BrowserWindow = electron.BrowserWindow  // 窗口引用
-var mainWindow = null  // 声明要打开的主窗口
-
-app.on('ready', ()=> {
-  mainWindow = new BrowserWindow({
+function createWindow () {
+  const win = new BrowserWindow({
     width: 800,
-    height: 800
+    height: 600,
+    webPreferences: {
+      preload: path.join(__dirname, 'preload.js')
+    }
   })
 
-  mainWindow.loadFile('index.html')  // 加载html页面
+  win.loadFile('index.html')
+}
 
-  // 监听关闭
-  mainWindow.on('close', ()=>{
-    mainWindow = null
+app.whenReady().then(() => {
+  createWindow()
+
+  app.on('activate', () => {
+    if (BrowserWindow.getAllWindows().length === 0) {
+      createWindow()
+    }
   })
+})
+
+app.on('window-all-closed', () => {
+  if (process.platform !== 'darwin') {
+    app.quit()
+  }
 })

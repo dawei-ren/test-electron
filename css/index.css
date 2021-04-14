@@ -1,0 +1,41 @@
+#subnav {
+  /* width: 100px; */
+  min-height: 100vh;
+  background-color: gray;
+}
+
+#subnav, #tab {
+  float: left;
+}
+
+ul {
+  list-style: none;
+  /* background-color: blue; */
+  margin: 0;
+  padding: 0;
+}
+
+#subnav ul li {
+  height: 45px;
+  line-height: 45px;
+  padding: 0 10px;
+  /* background-color: aqua; */
+}
+
+.active {
+  background-color: orange;
+}
+
+#tab > div {
+  display: none;
+}
+
+.m {
+  margin-left: 30px;
+}
+
+#wb {
+  min-width: 100vh;
+}
+
+

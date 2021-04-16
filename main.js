@@ -3,7 +3,7 @@ const path = require('path')
 
 function createWindow () {
   const win = new BrowserWindow({
-    width: 1000,
+    width: 1200,
     height: 800,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
@@ -14,6 +14,7 @@ function createWindow () {
   })
 
   win.loadFile('index.html')
+  // win.loadFile('test.html')
 }
 
 app.whenReady().then(() => {
@@ -31,3 +32,4 @@ app.on('window-all-closed', () => {
     app.quit()
   }
 })
+

@@ -38,4 +38,10 @@ ul {
   min-width: 100vh;
 }
 
+#line {
+  width: 1000px;
+  /* width: 50%; */
+  height: 500px;
+}
+
 

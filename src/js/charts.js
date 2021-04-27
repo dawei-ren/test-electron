@@ -1,13 +1,7 @@
 const echarts = require('echarts')
 
-
-
-
 function drawChart() {
-
-
   let myChart = echarts.init(document.getElementById('mychart'));
-
   let option = {
     color: ['#80FFA5', '#00DDFF', '#37A2FF', '#FF0087', '#FFBF00'],
     title: {
@@ -176,9 +170,7 @@ function drawChart() {
     ],
     animation: false
   };
-
   option && myChart.setOption(option);
-
   return myChart
 }
 
@@ -211,4 +203,4 @@ function drawLine() {
 
 }
 
-export { drawChart, drawLine }
+export { drawChart }

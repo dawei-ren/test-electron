@@ -1,6 +1,6 @@
 // 导入js模块 
 import { drawChart } from '../js/charts.js'
-import { downloadFileByBase64, saveFileByBase64 } from '../js/download.js'
+import { saveFileByBase64 } from '../js/download.js'
 
 
 // 主题tab切换逻辑
@@ -29,12 +29,6 @@ let myChart = drawChart()
 // 下载图片
 let downloadImgBtn = document.querySelector('#download-img-btn')
 downloadImgBtn.onclick = () => {
-  // 判断加载完成，下载图片
-  // downloadFileByBase64(myChart.getDataURL(), 'test_img')
-
   saveFileByBase64(myChart.getDataURL())
-  
-
-
 }
 

@@ -32,6 +32,7 @@ function saveFileByBase64AndAlertSaveWindow(base64_str) {
   let base64 = base64_str.replace(/^data:image\/\w+;base64,/, "");
   let dataBuffer = new Buffer.from(base64, 'base64');
 
+  // 弹出保存文件对话框
   dialog.showSaveDialog({
     title: "保存文件",
     filters: [{ name: "Custom File Type", extensions: ['png', 'jpg'] }]
@@ -49,7 +50,7 @@ function saveFileByBase64(base64_str) {
 
   // 创建文件保存目录
   let fileDir = 'download'
-  if(!fs.existsSync(fileDir)){
+  if (!fs.existsSync(fileDir)) {
     fs.mkdirSync(fileDir)
   }
 
@@ -59,4 +60,4 @@ function saveFileByBase64(base64_str) {
   fs.writeFileSync(fileDir + '/' + fileName, dataBuffer)
 }
 
-export { downloadFileByBase64, saveFileByBase64 }
+export { saveFileByBase64 }

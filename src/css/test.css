@@ -1,0 +1,51 @@
+/* 导入其他css文件 */
+@import url(normalize.css);
+@import url(base.css);
+@import url(testChart.css);
+
+body {
+  font-family:simsun;
+}
+
+.out-box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#subnav {
+  width: var(--main-left-tab-width);
+  height: 100%;
+  background-color: var(--main-color);
+  float: left;
+  position: fixed;
+}
+
+#tab {
+  margin-left: var(--main-left-tab-width);
+  float: left;
+  position: absolute;
+}
+
+#subnav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#subnav ul li {
+  height: 45px;
+  line-height: 45px;
+  padding: 0 10px;
+  font-size: 15px;
+}
+
+.active {
+  background-color: blue;
+  color: aliceblue;
+}
+
+#tab > div {
+  display: none;
+}
+

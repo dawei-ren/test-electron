@@ -4,10 +4,10 @@ const ipcMain = require('electron').ipcMain;
 
 function createWindow () {
   const win = new BrowserWindow({
-    width: 800,
+    width: 850,
     height: 600,
     webPreferences: {
-      preload: path.join(__dirname, 'src', 'views', 'preload.js'),
+      preload: path.join(__dirname, 'src', 'js', 'preload.js'),
 
       // 以下配置必须要有，
       nodeIntegration: true,   // 是否启用节点集成

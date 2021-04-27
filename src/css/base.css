@@ -1,0 +1,7 @@
+/* 获取根元素并且定义变量 */
+:root {
+  --color-block: #0441A3;
+  --color-back-ground: #012463;
+  --main-color: #649AE8;
+  --main-left-tab-width: 70px;
+}

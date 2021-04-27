@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>测试页面</title>
+  <link rel="stylesheet" href="../css/test.css">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
 </head>
+
 <body>
-  <h1>测试</h1>
-  <p>以下为electron测试</p>
+
+  <!-- 主体程序 -->
+  <div class="out-box">
+    <!-- 侧导航栏 -->
+    <div id="subnav">
+      <ul id="lis">
+        <li class="active">Echarts</li>
+        <li>地图</li>
+      </ul>
+    </div>
+
+    <div id="tab">
+      <!-- 气压图页面开始 -->
+      <div style="display: block;">
+
+        <div id="mychart"></div>
+        <button id="download-img-btn">下载图片</button>
+      </div>
+      <!-- 气压图页面结束 -->
+      <!-- 分布图面开始 -->
+      <div>
+        <h1>地图</h1>
+      </div>
+      <!-- 分布图面结束 -->
+    </div>
+  </div>
+
 </body>
+<script type="module" src="../js/test.js"></script>
+
 </html>

@@ -1,7 +1,8 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, Tray, Menu  } = require('electron')
 const path = require('path')
 const ipcMain = require('electron').ipcMain;
 
+let tray = null
 function createWindow () {
   const win = new BrowserWindow({
     width: 850,
@@ -23,6 +24,38 @@ function createWindow () {
   ipcMain.on('start-test', (event, arg) => {
     console.log(arg);  // 接收到的信息会打印在控制台
     win.loadFile(path.join(__dirname, 'src', 'views', 'test.html'))
+  })
+
+  // 右下角托盘区显示
+
+  // 当点击关闭按钮
+  win.on('close', (e) => {
+    e.preventDefault();  // 阻止退出程序
+    win.setSkipTaskbar(true)   // 取消任务栏显示
+    win.hide();    // 隐藏主程序窗口
+  })
+
+  // 创建任务栏图标
+  tray = new Tray(path.join(__dirname, 'src', 'icons', 'small.ico'))
+
+  // 自定义托盘图标的内容菜单
+  const contextMenu = Menu.buildFromTemplate([
+    {
+      // 点击退出菜单退出程序
+      label: '退出', click: function () {
+        console.log(123);
+        win.destroy()
+        app.quit()
+
+      }
+    }
+  ])
+
+  tray.setToolTip('test-electron')  // 设置鼠标指针在托盘图标上悬停时显示的文本
+  tray.setContextMenu(contextMenu)  // 设置图标的内容菜单
+  // 点击托盘图标，显示主窗口
+  tray.on("click", () => {
+    win.show();
   })
 }
 

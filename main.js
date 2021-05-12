@@ -10,7 +10,7 @@ function createWindow () {
       preload: path.join(__dirname, 'src', 'js', 'preload.js'),
 
       // 以下配置必须要有，
-      nodeIntegration: true,   // 是否启用节点集成
+      nodeIntegration: true,   // 是否启用node集成
       contextIsolation: false,
       webviewTag:true,   // 是否启用webview
       enableRemoteModule: true    // 是否启用远程模块

@@ -5,3 +5,31 @@
   margin-top: 20px;
   margin-left: 20px;
 }
+
+#line {
+  width: 700px;
+  height: 500px;
+  /* margin-top: 20px; */
+  /* margin-left: 20px; */
+}
+
+#heatmap {
+  width: 1300px;
+  height: 380px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+#test-heatmap {
+  width: 1300px;
+  height: 380px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+#test-line {
+  width: 700px;
+  height: 500px;
+  margin-top: 20px;
+  margin-left: 20px;
+}

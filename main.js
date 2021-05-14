@@ -1,6 +1,8 @@
 const { app, BrowserWindow, Tray, Menu  } = require('electron')
 const path = require('path')
 const ipcMain = require('electron').ipcMain;
+const Store = require('electron-store');
+const store = new Store();
 
 let tray = null
 function createWindow () {
@@ -17,6 +19,35 @@ function createWindow () {
       enableRemoteModule: true    // 是否启用远程模块
     }
   })
+
+  store.set('test', true);
+  console.log(store.get('test'));
+
+  // 菜单设置
+  let template = [
+    {
+      label: '用户',
+      submenu: [
+        {
+          label: '退出登陆',
+          click: ()=>{
+            console.log("logout");
+          }
+        },
+        {label: '切换用户'},
+        {
+          label: '控制台',
+          click: ()=>{
+            win.webContents.openDevTools({mode: 'bottom'})
+          }
+        }
+      ]
+    }
+  ]
+  
+  let m = Menu.buildFromTemplate(template)
+  Menu.setApplicationMenu(m)
+
 
   win.loadFile(path.join(__dirname, 'src', 'views', 'index.html'))
 
@@ -43,7 +74,6 @@ function createWindow () {
     {
       // 点击退出菜单退出程序
       label: '退出', click: function () {
-        console.log(123);
         win.destroy()
         app.quit()
 
@@ -57,6 +87,8 @@ function createWindow () {
   tray.on("click", () => {
     win.show();
   })
+
+  
 }
 
 app.whenReady().then(() => {

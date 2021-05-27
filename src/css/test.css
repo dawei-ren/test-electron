@@ -19,12 +19,14 @@ body {
   background-color: var(--main-color);
   float: left;
   position: fixed;
+  z-index: 10;
 }
 
 #tab {
   margin-left: var(--main-left-tab-width);
   float: left;
   position: absolute;
+  z-index: 1;
 }
 
 #subnav ul {
